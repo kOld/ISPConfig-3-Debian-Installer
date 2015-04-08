@@ -224,7 +224,7 @@ update-rc.d -f apache2 remove
 
 apt-get install -y php5-fpm
 apt-get install -y php5-curl php5-gd php5-intl php-pear php5-imagick php5-imap php5-memcache php5-memcached php5-ming php5-ps php5-pspell php5-recode php5-snmp php5-sqlite php5-tidy php5-xmlrpc php5-xsl memcached
-apt-get install -y php5-xcache
+#apt-get install -y php5-xcache
 #PHP Configuration Stuff Goes Here
 apt-get install -y fcgiwrap
 
