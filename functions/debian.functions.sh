@@ -249,6 +249,11 @@ cat > /etc/php5/cli/conf.d/ming.ini <<"EOF"
 extension=ming.so
 EOF
 
+# fix_pathinfo=0 and php timezone 
+sed -i "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/" /etc/php5/fpm/php.ini
+sed -i "s/;date.timezone =.*/date.timezone = Europe\/Lisbon/" /etc/php5/fpm/php.ini
+sed -i "s/;date.timezone =.*/date.timezone = Europe\/Lisbon/" /etc/php5/cli/php.ini
+
 /etc/init.d/php5-fpm restart
 
 } # end function debian.install_NginX
