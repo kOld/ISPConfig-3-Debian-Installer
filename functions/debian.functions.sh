@@ -198,7 +198,7 @@ EOF
 sed -i 's|application/x-ruby|#application/x-ruby|' /etc/mime.types
 
 #Install XCache
-apt-get install -y php5-xcache
+#apt-get install -y php5-xcache
 
 
 
@@ -214,16 +214,24 @@ debian.install_NginX (){
 echo 'phpmyadmin      phpmyadmin/reconfigure-webserver        multiselect' | debconf-set-selections
 echo 'phpmyadmin      phpmyadmin/dbconfig-install     boolean false' | debconf-set-selections
 
-apt-get install -y nginx
-/etc/init.d/apache2 stop
-update-rc.d -f apache2 remove
+
+
+
+apt-get install -y nginx-extras
+
+if [[ -x "/etc/init.d/apache2" ]]
+then
+    /etc/init.d/apache2 stop
+    update-rc.d -f apache2 remove
+fi
+
 /etc/init.d/nginx start
 
 apt-get install -y php5-fpm
-apt-get install -y php5-curl php5-gd php5-intl php-pear php5-imagick php5-imap php5-memcache php5-memcached php5-ming php5-ps php5-pspell php5-recode php5-snmp php5-sqlite php5-tidy php5-xmlrpc php5-xsl memcached
+apt-get install -y php5-curl php5-gd php5-intl php-pear php5-imagick php5-imap php5-memcache php5-memcached php5-ming php5-ps php5-pspell php5-recode php5-snmp php5-sqlite php5-tidy php5-xmlrpc php5-xsl
 #apt-get install -y php5-xcache
 #PHP Configuration Stuff Goes Here
-apt-get install -y fcgiwrap
+#apt-get install -y fcgiwrap
 
 echo "========================================================================="
 echo "You will be prompted for some information during the install of phpmyadmin."
