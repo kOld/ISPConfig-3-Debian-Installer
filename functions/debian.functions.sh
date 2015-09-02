@@ -155,7 +155,7 @@ echo 'phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2' | debconf
 #echo 'phpmyadmin      phpmyadmin/dbconfig-reinstall   boolean false' | debconf-set-selections
 #echo 'phpmyadmin      phpmyadmin/dbconfig-install     boolean false' | debconf-set-selections
 
-apt-get install -y apache2 apache2.2-common apache2-doc apache2-mpm-prefork apache2-utils libexpat1 ssl-cert libapache2-mod-php5 php5-common php5-gd php5-imap phpmyadmin php5-cgi libapache2-mod-fcgid apache2-suexec php-pear php-auth php5-imagick imagemagick libapache2-mod-suphp libruby libapache2-mod-ruby libapache2-mod-python php5-curl php5-intl php5-memcache php5-memcached php5-ming php5-ps php5-pspell php5-recode php5-snmp php5-sqlite php5-tidy php5-xmlrpc php5-xsl memcached
+apt-get install -y apache2 apache2-doc apache2-mpm-prefork apache2-utils libexpat1 ssl-cert libapache2-mod-php5 php5-common php5-gd php5-imap phpmyadmin php5-cgi libapache2-mod-fcgid apache2-suexec php-pear php-auth php5-imagick imagemagick libapache2-mod-suphp libruby libapache2-mod-ruby libapache2-mod-python php5-curl php5-intl php5-memcache php5-memcached php5-ming php5-ps php5-pspell php5-recode php5-snmp php5-sqlite php5-tidy php5-xmlrpc php5-xsl memcached
 
 a2enmod suexec rewrite ssl actions include
 a2enmod dav_fs dav auth_digest
@@ -163,7 +163,7 @@ a2enmod dav_fs dav auth_digest
 #Fix Ming Error
 rm /etc/php5/cli/conf.d/ming.ini
 cat > /etc/php5/cli/conf.d/ming.ini <<"EOF"
-extension=ming.so
+# extension=ming.so
 EOF
 
 #Fix SuPHP
@@ -203,7 +203,7 @@ apt-get install -y php5-xcache
 
 
 #Restart Apache
-/etc/init.d/apache2 restart
+apache2ctl restart
 
 } # end function debian.install_Apache
 
