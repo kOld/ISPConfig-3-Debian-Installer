@@ -25,8 +25,8 @@ function_install_ISPC_Clean() {
 
 	# Get Theme
 	cd /tmp
-	wget https://github.com/dclardy64/ISPConfig_Clean-3.0.5/archive/master.zip
-	unzip master.zip
+	wget https://codeload.github.com/dylian94/ISPConfig_Clean-3.0.5/zip/master
+	unzip ISPConfig_Clean*
 	cd ISPConfig_Clean-3.0.5-master
 	cp -R interface/* /usr/local/ispconfig/interface/
 
