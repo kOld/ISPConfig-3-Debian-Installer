@@ -242,6 +242,9 @@ elif [ $ISPConfig_Installed == "Yes" ]; then
 			if [ $theme == "ISPC-Clean" ]; then
 				function_install_ISPC_Clean
 			fi
+			if [ $theme == "ISPC-Material" ]; then
+				function_install_ISPC_Material
+			fi
 		elif [ $extra_stuff == "RoundCube" ]; then
 			roundcube_questions
 			if [ $web_server == "Apache" ]; then
