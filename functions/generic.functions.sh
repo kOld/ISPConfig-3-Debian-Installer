@@ -40,7 +40,7 @@ if (whiptail --title "Install Web Server" --backtitle "$back_title" --yesno "Ins
 	install_web_server=Yes
 	while [ "x$web_server" == "x" ]
 	do
-	web_server=$(whiptail --title "Web Server" --backtitle "$back_title" --nocancel --radiolist "Select Web Server Software" 10 50 2 "Apache" "(default)" ON "NginX" "" OFF 3>&1 1>&2 2>&3)
+	web_server=$(whiptail --title "Web Server" --backtitle "$back_title" --nocancel --radiolist "Select Web Server Software" 10 50 2 "NginX" "(default)" ON "Apache" "" OFF  3>&1 1>&2 2>&3)
 	done
 	else
 	install_web_server=No
@@ -61,7 +61,7 @@ done
 if [ $sql_server == "MariaDB" ]; then
 while [ "x$maria_version" == "x" ]
 do
-maria_version=$(whiptail --title "MariaDB Version" --backtitle "$back_title" --nocancel --radiolist "Select MariaDB Version" 10 50 2 "5.5" "(default)" ON "10.0" "" OFF 3>&1 1>&2 2>&3)
+maria_version=$(whiptail --title "MariaDB Version" --backtitle "$back_title" --nocancel --radiolist "Select MariaDB Version" 10 50 2 "10.0" "(default)" ON "5.5" "" ON 3>&1 1>&2 2>&3)
 done
 fi		
 while [ "x$mysql_pass" == "x" ]
