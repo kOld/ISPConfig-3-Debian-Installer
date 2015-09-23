@@ -29,7 +29,7 @@ if command -v lsb_release &> /dev/null; then
 	fi
 fi
 
-if DISTRIBUTION -eq "none"; then
+if $DISTRIBUTION -eq "none"; then
 	if [ -f /etc/debian_version ]; then
 	    DISTRIBUTION=debian
 	fi
