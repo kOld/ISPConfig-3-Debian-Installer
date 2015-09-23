@@ -28,3 +28,9 @@ if command -v lsb_release &> /dev/null; then
 		DISTRIBUTION=ubuntu
 	fi
 fi
+
+if DISTRIBUTION -eq "none"; then
+	if [ -f /etc/debian_version ]; then
+	    DISTRIBUTION=debian
+	fi
+fi
